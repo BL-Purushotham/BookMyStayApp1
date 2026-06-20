@@ -18,6 +18,24 @@ public class BookMyStayApp {
 
         System.out.println("Suite Availability : "
                 + inventory.getAvailableRooms("Suite"));
+<<<<<<< HEAD
+=======
+
+        System.out.println("===== SEARCHING ROOMS =====");
+
+        SearchService searchService =
+                new SearchService(inventory);
+
+        System.out.println("Searching Single Room");
+
+        searchService.searchRoom("Single");
+
+        System.out.println();
+
+        System.out.println("Searching Double Room");
+
+        searchService.searchRoom("Double");
+>>>>>>> feature/UC2-SearchSerive
     }
 
 }
