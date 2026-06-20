@@ -18,8 +18,6 @@ public class BookMyStayApp {
 
         System.out.println("Suite Availability : "
                 + inventory.getAvailableRooms("Suite"));
-<<<<<<< HEAD
-=======
 
         System.out.println("===== SEARCHING ROOMS =====");
 
@@ -35,7 +33,43 @@ public class BookMyStayApp {
         System.out.println("Searching Double Room");
 
         searchService.searchRoom("Double");
->>>>>>> feature/UC2-SearchSerive
+
+        System.out.println("BOOKING QUEUE SERVICE");
+        BookingQueueService queue =
+                new BookingQueueService();
+
+        Reservation r1 =
+                new Reservation(
+                        "R101",
+                        "Lakshmi",
+                        "Single");
+
+        Reservation r2 =
+                new Reservation(
+                        "R102",
+                        "Kumar",
+                        "Double");
+        Reservation r3 =
+                new Reservation(
+                        "R103",
+                        "Priya",
+                        "Suite");
+
+        queue.addBookingRequest(r1);
+        queue.addBookingRequest(r2);
+        queue.addBookingRequest(r3);
+
+        System.out.println("\nProcessing Queue");
+
+        while(queue.hasPendingRequests()) {
+
+            Reservation reservation =
+                    queue.getNextRequest();
+
+            System.out.println(
+                    reservation.getReservationId()
+                            + " processed");
+        }
     }
 
 }
